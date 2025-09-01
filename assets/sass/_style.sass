@@ -21,3 +21,10 @@ h1,h2,h3,h4,h5,h6
   font-size: 59px
   color: #FFFFFF
   text-align: center
+
+.hero
+    .content
+        .hero-text
+            @include media-breakpoint-up(desktop)
+                padding-left: offset(1)
+                width: columns(10)
