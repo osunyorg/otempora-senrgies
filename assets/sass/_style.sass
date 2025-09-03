@@ -27,23 +27,39 @@ h2,h3,h4,h5,h6
                 padding-left: offset(1)
                 width: columns(10)
 
+.block-chapter
+  @include in-page-without-sidebar
+    padding-top: $spacing-5
+    padding-bottom: $spacing-5
+
 .block-chapter.block-class-green
     background-color: $color-dark-green
     background-image: url(/assets/images/eye3.svg)
     background-repeat: no-repeat
     background-attachment: fixed
     background-position: left bottom
+
+.block-chapter--alt_background
+  .block-title
+    @include h2
+  &:not(.block-chapter--with-image)
+     @include in-page-without-sidebar
+      padding-top: $spacing-6
+      padding-bottom: $spacing-6
+      .text
+        width: columns(12)
+ 
      
 .block-chapter--accent_background
   .block-title
     @include h2
+    color: $color-background
+
   .rich-text
     @include h3
   .notes
     @include body-text
   @include in-page-without-sidebar
-    padding-top: $spacing-5
-    padding-bottom: $spacing-5
     .chapter
       flex-direction: row-reverse
     &.block-chapter--with-image
@@ -60,11 +76,6 @@ h2,h3,h4,h5,h6
         .text
           flex: 1
     
-
-.block .block-title
-  color: #FFFFFF        // texte en blanc
-  font-weight: bold         // espacement interne
-  text-transform: none
 
 .block-title.block-class-hidden
   @extend .sr-only
