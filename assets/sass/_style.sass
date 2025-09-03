@@ -3,7 +3,7 @@
         @include grid(2, desktop)
 
 
-h1,h2,h3,h4,h5,h6
+h2,h3,h4,h5,h6
     color: $color-heading
 
 .block-features li figure picture img
@@ -18,8 +18,6 @@ h1,h2,h3,h4,h5,h6
     // comment
 
 .hero h1
-  font-size: 59px
-  color: #FFFFFF
   text-align: center
 
 .hero
@@ -34,6 +32,7 @@ h1,h2,h3,h4,h5,h6
     background-image: url(/assets/images/eye3.svg)
     background-repeat: no-repeat
     background-attachment: fixed
+    background-position: left bottom
      
 .block-chapter--accent_background
   .block-title
@@ -43,13 +42,10 @@ h1,h2,h3,h4,h5,h6
   .notes
     @include body-text
   @include in-page-without-sidebar
+    padding-top: $spacing-5
+    padding-bottom: $spacing-5
     .chapter
       flex-direction: row-reverse
-      figure
-        margin-left: var(--grid-gutter-negative)
-        width: columns(5)
-      .text
-        width: columns(6)
     &.block-chapter--with-image
       padding: 0
       .chapter
@@ -57,7 +53,13 @@ h1,h2,h3,h4,h5,h6
         justify-content: flex-end
         gap: var(--grid-gutter)
         align-items: center
-  
+
+        figure
+          margin-left: var(--grid-gutter-negative)
+          width: columns(7)
+        .text
+          flex: 1
+    
 
 .block .block-title
   color: #FFFFFF        // texte en blanc
@@ -86,5 +88,20 @@ h1,h2,h3,h4,h5,h6
       b
         color: $color-green
 
+.block-features
+    li 
+      div > div p 
+        b
+          @include h4
+          margin-bottom: $spacing-2
+          display: block
+          color: $color-accent
 
-  
+      .name
+        @include h4
+        font-weight: bold
+        margin: 0
+    ul 
+      @include in-page-without-sidebar
+        grid-gap: $spacing-5 $spacing-6
+
