@@ -43,3 +43,26 @@ h1,h2,h3,h4,h5,h6
   font-weight: bold         // espacement interne
   text-transform: none
   font-size: 26px
+
+.block-chapter.block-class-intro-center
+  .chapter
+    @include in-page-without-sidebar
+      flex-direction: column
+      gap: $spacing-4
+      .text
+        width: columns(8)
+        text-align: center
+      figure
+        width: columns(6)
+      
+      > *
+        margin: auto
+    .text
+      @include h3
+      font-family: $body-font-family
+      color: $color-heading
+      font-weight: bold
+      b
+        color: $color-green
+
+  
