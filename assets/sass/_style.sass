@@ -13,11 +13,17 @@ h2,h3,h4,h5,h6
 
 .hero
     //background-image: url(/assets/images/background.jpg)
-    .hero-text 
-        position: absolute
+    padding: 0
+    
     .container 
         padding: 0
     .content
+        align-items: center
+        justify-content: center 
+        .hero-text 
+            position: absolute
+            z-index: 8
+            padding-left: 0 !important
         figure
             width: 100%
             //margin: 0 var(--grid-gutter-negative)
