@@ -7,15 +7,13 @@ h2,h3,h4,h5,h6
     color: $color-heading
 
 .block-features li figure picture img
-  display: block
-  margin-left: 0
-  margin-right: auto
+    display: block
+    margin-left: 0
+    margin-right: auto
 
 .hero
     background-image: url(/assets/images/background.jpg)
     background-size: cover
-
-    // comment
 
 .hero h1
   text-align: center
@@ -59,40 +57,38 @@ h2,h3,h4,h5,h6
     @include h3
   .notes
     @include body-text
-  @include in-page-without-sidebar
-    .chapter
-      flex-direction: row-reverse
-    &.block-chapter--with-image
-      padding: 0
-      .chapter
-        
-        justify-content: flex-end
-        gap: var(--grid-gutter)
-        align-items: center
-
-        figure
-          margin-left: var(--grid-gutter-negative)
-          width: columns(7)
-        .text
-          flex: 1
+    @include in-page-without-sidebar
+        .chapter
+        flex-direction: row-reverse
+        &.block-chapter--with-image
+        padding: 0
+        .chapter
+            justify-content: flex-end
+            gap: var(--grid-gutter)
+            align-items: center
+            figure
+                margin-left: var(--grid-gutter-negative)
+                width: columns(7)
+            .text
+                flex: 1
     
 
 .block-title.block-class-hidden
-  @extend .sr-only
+    @extend .sr-only
 
 .block-chapter.block-class-intro-center
   .chapter
     @include in-page-without-sidebar
-      flex-direction: column
-      gap: $spacing-4
-      .text
-        width: columns(8)
-        text-align: center
-      figure
-        width: columns(6)
+        flex-direction: column
+        gap: $spacing-4
+        .text
+            width: columns(8)
+            text-align: center
+        figure
+            width: columns(6)
       
-      > *
-        margin: auto
+        > *
+            margin: auto
     .text
       @include h3
       color: $color-heading
@@ -115,4 +111,37 @@ h2,h3,h4,h5,h6
     ul 
       @include in-page-without-sidebar
         grid-gap: $spacing-5 $spacing-6
+
+.block-contact
+    color: $color-background
+    background: $color-accent
+    .block-title, a
+        color: $color-background
+    .block-title
+        @include h2
+    @include in-page-without-sidebar
+        padding-top: $spacing-6
+        padding-bottom: $spacing-6
+        
+        .block-content 
+            display: flex
+            align-items: baseline
+        .top, .block-title
+            margin-bottom: 0
+        .contact-content, .contacts
+            margin-top: 0
+        .contact-content
+            width: columns(6)
+            .contacts
+                @include h3
+                font-weight: normal
+                @include grid(2)
+                gap: $spacing-3
+        .top
+            flex: 1
+            
+
+    .contacts
+        h3,h4,h5
+            @extend .sr-only
 
