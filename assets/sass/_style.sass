@@ -47,30 +47,34 @@ h2,h3,h4,h5,h6
       .text
         width: columns(12)
  
-     
-.block-chapter--accent_background
-  .block-title
-    @include h2
-    color: $color-background
+.block-chapter--alt_background, .block-chapter--accent_background
+    + .block-contact
+        margin-top: 0
+        
 
-  .rich-text
-    @include h3
-  .notes
-    @include body-text
+.block-chapter--accent_background
+    .block-title
+        @include h2
+        color: $color-background
+
+    .rich-text
+        @include h3
+    .notes
+        @include body-text
     @include in-page-without-sidebar
         .chapter
-        flex-direction: row-reverse
+            flex-direction: row-reverse
         &.block-chapter--with-image
-        padding: 0
-        .chapter
-            justify-content: flex-end
-            gap: var(--grid-gutter)
-            align-items: center
-            figure
-                margin-left: var(--grid-gutter-negative)
-                width: columns(7)
-            .text
-                flex: 1
+            padding: 0
+            .chapter
+                justify-content: flex-end
+                gap: var(--grid-gutter)
+                align-items: center
+                figure
+                    margin-left: var(--grid-gutter-negative)
+                    width: columns(7)
+                .text
+                    flex: 1
     
 
 .block-title.block-class-hidden
@@ -144,4 +148,5 @@ h2,h3,h4,h5,h6
     .contacts
         h3,h4,h5
             @extend .sr-only
+
 
