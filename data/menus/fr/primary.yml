@@ -1,0 +1,34 @@
+---
+title: Menu principal
+items:
+- title: Activités
+  target: "#nos-activites"
+  kind: url
+  new_tab: false
+  children: []
+- title: Qui sommes-nous ?
+  target: "#identite"
+  kind: url
+  new_tab: false
+  children: []
+- title: Nos projets
+  target: "#nos-projets"
+  kind: url
+  new_tab: false
+  children: []
+- title: Ambition
+  target: "#ambition"
+  kind: url
+  new_tab: false
+  children: []
+- title: Gouvernance
+  target: "#gouvernance"
+  kind: url
+  new_tab: false
+  children: []
+- title: Contact
+  target: "#contact"
+  kind: url
+  new_tab: false
+  children: []
+
