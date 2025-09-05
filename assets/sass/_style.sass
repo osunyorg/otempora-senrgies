@@ -2,35 +2,100 @@
     @include in-page-without-sidebar
         @include grid(2, desktop)
 
-
 h2,h3,h4,h5,h6
     color: $color-heading
+
+// header : bannière avec logo + menu
+header#document-header
+    // ici pour éviter de réécrire toute la ligne `border: 1px...` on réassigne la variable css
+    --color-border: #{$header-color}
+    .menu
+        span, a, button
+            font-weight: bold
+    &.is-sticky
+        // en l'absence de logo bleu, on inverse la couleur de blanc vers noir
+        // dans l'idéal, ajouter un 2e logo à afficher à la place
+        .logo
+            filter: invert(1)
+
 
 .block-features li figure picture img
     display: block
     margin-left: 0
     margin-right: auto
 
-.hero
-    //background-image: url(/assets/images/background.jpg)
-    padding: 0
-    
-    .container 
-        padding: 0
-    .content
-        align-items: center
-        justify-content: center 
-        .hero-text 
+.page__home
+    .hero--with-image
+        padding-top: 0 !important
+        padding-bottom: 0
+        .content
+            align-items: center
+            justify-content: center
+            padding-top: 0
+            h1
+                text-align: center
+            .hero-text 
+                position: absolute
+                z-index: 8
+                padding-left: 0 !important
+                @include media-breakpoint-up(desktop)
+                    width: columns(12)
+                @include media-breakpoint-up(xxl)
+                    width: columns(8)
+                @include media-breakpoint-up(xxxl)
+                    width: columns(11)
+            figure
+                width: 100%
+                img
+                    object-fit: cover
+                    height: 100vh
+        &::after,
+        &::before
+            content: ''
             position: absolute
-            z-index: 8
-            padding-left: 0 !important
-        figure
+            pointer-events: none
+        &::before
+            // ici le logo snergie dans `/assets/images/hero/senrgies.png`
+        &::after
+            // ici dans l'idéal un svg
+            background-image: url('/assets/images/hero/agglo.png')
+            background-size: cover
+            bottom: 0
+            right: 0
+            height: pxToRem(183)
             width: 100%
-            //margin: 0 var(--grid-gutter-negative)
-    background-size: cover
+            @include media-breakpoint-up(desktop)
+                height: pxToRem(210)
+                width: pxToRem(450)
+        @include media-breakpoint-up(desktop)
+            .container
+                padding-left: 0
+                padding-right: 0
+                max-width: unset
+                max-height: 100vh
+                width: 100%
+                figcaption
+                    margin-left: auto
+                    margin-right: auto
+                    padding-left: var(--grid-gutter)
+                    padding-right: var(--grid-gutter)
+                    width: var(--grid-width)
+                figcaption::before
+                    padding-right: var(--grid-gutter)
+        @include media-breakpoint-down(desktop)
+            &:has(figcaption)::after
+                bottom: pxToRem(37)
+            .content
+                display: flex
+                align-items: center
+            figure
+                width: calc(100% + (var(--grid-gutter) * 2)) !important
+                img
+                    aspect-ratio: 1
+                    object-fit: cover
 
-.hero h1
-  text-align: center
+    .block-contact
+        margin-top: 0
 
 .hero
     .content
@@ -40,9 +105,9 @@ h2,h3,h4,h5,h6
                 width: columns(10)
 
 .block-chapter
-  @include in-page-without-sidebar
-    padding-top: $spacing-5
-    padding-bottom: $spacing-5
+    @include in-page-without-sidebar
+        padding-top: $spacing-5
+        padding-bottom: $spacing-5
 
 .block-chapter.block-class-green
     background-color: $color-dark-green
@@ -52,25 +117,20 @@ h2,h3,h4,h5,h6
     background-position: left bottom
 
 .block-chapter--alt_background
-  .block-title
-    @include h2
-  &:not(.block-chapter--with-image)
-     @include in-page-without-sidebar
-      padding-top: $spacing-6
-      padding-bottom: $spacing-6
-      .text
-        width: columns(12)
- 
-.block-chapter--alt_background, .block-chapter--accent_background
-    + .block-contact
-        margin-top: 0
+    .block-title
+        @include h2
+    &:not(.block-chapter--with-image)
+        @include in-page-without-sidebar
+            padding-top: $spacing-6
+            padding-bottom: $spacing-6
+            .text
+                width: columns(12)
         
 
 .block-chapter--accent_background
     .block-title
         @include h2
         color: $color-background
-
     .rich-text
         @include h3
     .notes
@@ -81,54 +141,66 @@ h2,h3,h4,h5,h6
         &.block-chapter--with-image
             padding: 0
             .chapter
-                justify-content: flex-end
                 gap: var(--grid-gutter)
-                align-items: center
-                figure
-                    margin-left: var(--grid-gutter-negative)
-                    width: columns(7)
-                .text
+                @include media-breakpoint-up(xl)
+                    align-items: center
+                    gap: $spacing-6
+                > *
                     flex: 1
+                figure
+                    img, picture, button
+                        height: 100%
+                        width: auto
+                    img
+                        object-fit: cover
+                    @include media-breakpoint-down(xxxl)
+                        margin-left: var(--grid-gutter-negative)
+                .text
+                    padding: $spacing-5 0
     
 
 .block-title.block-class-hidden
     @extend .sr-only
+    // ici on vient appliquer la même marge que sur les autres blocs
+    // dans le cas des blocs masqués suivi d'un autre bloc
+    + .block:not(.block-contact, .block-class-green)
+        margin-top: var(--heading-margin-top)
 
 .block-chapter.block-class-intro-center
-  .chapter
-    @include in-page-without-sidebar
-        flex-direction: column
-        gap: $spacing-4
-        .text
-            width: columns(8)
-            text-align: center
-        figure
-            width: columns(6)
-      
+    .chapter
+        @include in-page-without-sidebar
+            flex-direction: column
+            gap: $spacing-4
+            .text
+                width: columns(8)
+                text-align: center
+            figure
+                width: columns(6)
+        
         > *
             margin: auto
     .text
-      @include h3
-      color: $color-heading
-      b
-        color: $color-green
+        @include h3
+        color: $color-heading
+        b
+            color: $color-green
 
 .block-features
     li 
-      div > div p 
-        b
-          @include h4
-          margin-bottom: $spacing-2
-          display: block
-          color: $color-accent
+        div > div p 
+            b
+            @include h4
+            margin-bottom: $spacing-2
+            display: block
+            color: $color-accent
 
-      .name
-        @include h4
-        font-weight: bold
-        margin: 0
-    ul 
-      @include in-page-without-sidebar
-        grid-gap: $spacing-5 $spacing-6
+        .name
+            @include h4
+            font-weight: bold
+            margin: 0
+    @include in-page-without-sidebar
+        ul 
+            grid-gap: $spacing-5 $spacing-6
 
 .block-contact
     color: $color-background
@@ -137,10 +209,12 @@ h2,h3,h4,h5,h6
         color: $color-background
     .block-title
         @include h2
+    .contacts
+        h3,h4,h5
+            @extend .sr-only
     @include in-page-without-sidebar
         padding-top: $spacing-6
         padding-bottom: $spacing-6
-        
         .block-content 
             display: flex
             align-items: baseline
@@ -149,18 +223,15 @@ h2,h3,h4,h5,h6
         .contact-content, .contacts
             margin-top: 0
         .contact-content
-            width: columns(6)
+            flex: 1
             .contacts
                 @include h3
                 font-weight: normal
                 @include grid(2)
                 gap: $spacing-3
+            @include media-breakpoint-up(xl)
+                width: columns(6)
         .top
             flex: 1
-            
-
-    .contacts
-        h3,h4,h5
-            @extend .sr-only
 
 
