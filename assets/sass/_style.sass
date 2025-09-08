@@ -239,3 +239,18 @@ header#document-header
             flex: 1
 
 
+// footer : marge et alignement
+footer#document-footer
+  @include media-breakpoint-up(desktop)
+    padding: 0
+
+    .container
+      display: flex
+      justify-content: space-between
+      padding-bottom: 0
+      flex-direction: column
+
+      + .container
+        align-items: flex-end
+        padding-top: 0
+        padding-bottom: 0
