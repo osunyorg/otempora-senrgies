@@ -272,3 +272,14 @@ footer#document-footer
         @include in-page-without-sidebar
             h2
                 max-width: columns(11)
+
+//h2 accordeon elargissement grille                   
+.block-chapter.block-chapter--no_background.block-chapter--with-image
+    .chapter
+        @include in-page-without-sidebar
+            flex-direction: row
+            gap: $spacing-4
+            .text
+                width: columns(8)
+            figure
+                width: columns(6)
