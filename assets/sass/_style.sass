@@ -256,9 +256,10 @@ footer#document-footer
 
 //h2 accordeon changement de font
 .block.block-title--collapsed
-    .block.block-title--collapsed h2
-        font-family: $body-font-family !important
-        font-weight: normal
+    .block.block-title--collapsed 
+        h2
+            font-family: $body-font-family !important
+            font-weight: normal
 
 //h2 accordeon elargissement grille                   
 .block.block-title
@@ -272,3 +273,12 @@ footer#document-footer
     @include in-page-without-sidebar
         h2
             max-width: columns(10)
+
+//suppression padding
+.block-chapter
+     @include in-page-without-sidebar
+        &--alt_background, 
+        &--accent_background
+            padding-top: 0
+            padding-bottom: 0
+            margin-bottom: 0
