@@ -262,14 +262,24 @@ footer#document-footer
 
 //h2 accordeon elargissement grille                   
 .block.block-title--collapsed
-        margin-bottom: var(--heading-margin-bottom)
-        &:not(:first-child)
-            margin-top: var(--heading-margin-top)
-        @include in-page-with-sidebar
-            &::after
-                width: columns(11)
-                margin-left: auto
-        @include in-page-without-sidebar
-            h2
-                max-width: columns(11)
+    margin-bottom: var(--heading-margin-bottom)
+    &:not(:first-child)
+        margin-top: var(--heading-margin-top)
+    @include in-page-with-sidebar
+        &::after
+            width: columns(11)
+            margin-left: auto
+    @include in-page-without-sidebar
+        h2
+            max-width: columns(11)
 
+    // attention : le bloc de titre "collapsed" ne contient rien d'autre que son h2
+    // c'est la div avec la class "collapse" qui contient les blocs de l'accordéon
+    // pour éviter les effets de bord, on cible .collapse avec le "+", 
+    // cela signifie : "pour toutes les class "collapse" précédées par un .block-title--collapsed"
+    + .collapse
+        @include in-page-without-sidebar
+            .block-chapter
+                padding-top: 0
+                padding-bottom: 0
+                margin-bottom: 0
