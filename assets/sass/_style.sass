@@ -274,8 +274,9 @@ footer#document-footer
                 max-width: columns(11)
 
 //suppression padding
-.block-chapter
-     @include in-page-without-sidebar
-        padding-top: 0
-            padding-bottom: 0
-            margin-bottom: 0
+.block-title--collapsed
+    .block-chapter
+        @include in-page-without-sidebar
+            padding-top: 0
+                padding-bottom: 0
+                margin-bottom: 0
