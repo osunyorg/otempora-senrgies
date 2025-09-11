@@ -255,9 +255,36 @@ footer#document-footer
         padding-bottom: 0
 
 //h2 accordeon changement de font
-.block.block-title--collapsed,
-.block.block-title--collapsed h2
-  font-family: $body-font-family !important
+.block.block-title--collapsed
+    .block.block-title--collapsed h2
+        font-family: $body-font-family
+        font-weight: normal
+
+//h2 accordeon elargissement grille                   
+.block.block-title
+    margin-bottom: var(--heading-margin-bottom)
+    &:not(:first-child)
+        margin-top: var(--heading-margin-top)
+    @include in-page-with-sidebar
+        &::after
+            width: columns(10)
+            margin-left: auto
+    @include in-page-without-sidebar
+        h2
+            max-width: columns(10)
+    &--collapsed
+        align-items: end
+        cursor: pointer
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-between
+        position: relative
+        h2
+            flex: 1
+        @include icon(arrow-down-s-line, before)
+            font-size: pxToRem(25)
+            order: 2
+
 
 
 
