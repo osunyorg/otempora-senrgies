@@ -234,22 +234,6 @@ header#document-header
         .top
             flex: 1
 
-// footer : marge et alignement
-footer#document-footer
-  @include media-breakpoint-up(desktop)
-    padding: 0
-
-    .container
-      display: flex
-      justify-content: space-between
-      padding-bottom: 0
-      flex-direction: column
-
-      + .container
-        align-items: flex-end
-        padding-top: 0
-        padding-bottom: 0
-
 //h2 accordeon changement de font
 .block.block-title--collapsed
      h2
@@ -291,12 +275,6 @@ footer#document-footer
             figure
                 width: columns(6)
 
-//font footer
-.footer-legals
-    font-family: $body-font-family
-.footer-credit
-    font-family: $body-font-family  
-
 //image fond de hero page contenu
 .hero
     background-image: url(/assets/images/eye-dark-bg.svg)
@@ -309,3 +287,44 @@ footer#document-footer
 //couleur breadcrumb
 .breadcrumb li:not(:first-child)::before
     color: $color-background
+
+// footer
+
+//font footer
+.footer-legals
+    font-family: $body-font-family
+.footer-credit
+    font-family: $body-font-family  
+
+// footer : marge et alignement
+footer#document-footer
+  @include media-breakpoint-up(desktop)
+    padding-top: 0
+    .container
+    //   display: flex  // pas nécessaire: déjà dans le thème osuny
+    //   justify-content: space-between  // pas nécessaire: déjà dans le thème osuny
+      padding-bottom: 0
+    //   flex-direction: column  // pas nécessaire: déjà dans le thème osuny
+      + .container
+        // align-items: flex-end // pas nécessaire
+        padding-top: 0
+        padding-bottom: 0
+
+// on utilise l'ID (#) pour être sûr.e d'overider le style de base et de cibler le bon footer
+footer#document-footer
+    @include media-breakpoint-up(desktop)
+        // étape 1 : aligner les deux `.container` sur la même ligne -> jeu de flex avec un gap
+        // la class `.container` a des spécificités : elle a des paddings horizontaux qui nous gènent
+        // donc :
+        // container 1 : enlever le padding à droite
+        // container 2 : enlever le padding gauche
+
+        // étape 2 : aligner les 4 liens légaux
+        // ça se passe dans `.nav-legal` -> cette fois pour bien aligner par 2 on utilise plutôt `@include grid(x)`
+        // bien gérer le grid-gap pour le réduire
+        // on a codé le fait que chaque <li> à la suite d'un autre a une marge (top), c'est ce sélecteur : `li + li`
+        // il faut enlever cette marge
+
+        // étape 3 : apparence du crédit "un site éco-conçu..."
+        // aligner le texte à droite
+        // changer la taille du texte avec un `pxToRem(14)` (jamais sous 14px pour l'accessibilité)
