@@ -9,6 +9,18 @@ fr:
   buildFuture: true
   params:
     contact_details:
+      emails:
+        email:
+          label: >-
+            contact@senrgies.fr
+          value: >-
+            mailto:contact@senrgies.fr
+      social_networks:
+        linkedin:
+          label: >-
+            fr.senrgies
+          value: >-
+            https://fr.linkedin.com/company/senrgies/
 
   taxonomies:
     administrator: administrators
