@@ -49,6 +49,9 @@ header#document-header
                 img
                     object-fit: cover
                     height: 100vh
+                figcaption::before, .credit
+                    background: var(--color-background)
+                    color: var(--color-text)
         &::after,
         &::before
             content: ''
@@ -96,13 +99,6 @@ header#document-header
 
     .block-contact
         margin-top: 0
-
-.hero
-    .content
-        .hero-text
-            @include media-breakpoint-up(desktop)
-                padding-left: offset(1)
-                width: columns(10)
 
 .block-chapter
     @include in-page-without-sidebar
@@ -301,15 +297,14 @@ footer#document-footer
 .footer-credit
     font-family: $body-font-family  
 
-//couleur fond de hero page contenu
+//image fond de hero page contenu
 .hero
-    background-color: #2A559A
     background-image: url(/assets/images/eye-dark-bg.svg)
     background-repeat: no-repeat
     background-attachment: fixed
     background-position: right top
-    min-height: 250px
-
+    // pour la couleur de fond du hero et sa taille, on s'appuie plutôt sur les variables
+    // on ajoute donc dans _configuration.sass `$hero-background-color`
 
 //couleur breadcrumb
 .breadcrumb li:not(:first-child)::before
