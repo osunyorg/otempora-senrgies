@@ -59,9 +59,10 @@ header#document-header
             pointer-events: none
         &::before
             // ici le logo snergie dans `/assets/images/hero/senrgies.png`
+            background-image: url('/assets/images/hero/senrgies.png')
         &::after
             // ici dans l'idéal un svg
-            background-image: url('/assets/images/hero/agglo.png')
+            background-image: url('/assets/images/hero/agglo.svg')
             background-size: cover
             bottom: 0
             right: 0
@@ -281,8 +282,7 @@ header#document-header
     background-repeat: no-repeat
     background-attachment: fixed
     background-position: right top
-    // pour la couleur de fond du hero et sa taille, on s'appuie plutôt sur les variables
-    // on ajoute donc dans _configuration.sass `$hero-background-color`
+   
 
 //couleur breadcrumb
 .breadcrumb li:not(:first-child)::before
