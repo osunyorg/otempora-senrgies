@@ -14,7 +14,7 @@ header#document-header
             font-weight: bold
     &.is-sticky
         // en l'absence de logo bleu, on inverse la couleur de blanc vers noir
-        // dans l'idéal, ajouter un 2e logo à afficher à la place
+        // dans l'idéal, ajouter un 2e logo à afficher à la place - logo dispo '/assets/images/logo-SEnRgies-color-header.svg'
         .logo
             filter: invert(1)
 
@@ -60,6 +60,14 @@ header#document-header
         &::before
             // ici le logo snergie dans `/assets/images/hero/senrgies.png`-- a completer / en 
             background-image: url('/assets/images/hero/senrgies.png')
+            background-size: cover
+            margin-top: 150px
+            height: pxToRem(500)
+            width: 100%
+            @include media-breakpoint-up(desktop)
+                height: pxToRem(500)
+                width: pxToRem(450)
+            z-index: 3
         &::after
             // ici dans l'idéal un svg
             background-image: url('/assets/images/hero/agglo.svg')

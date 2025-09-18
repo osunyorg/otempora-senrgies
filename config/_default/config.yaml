@@ -6,6 +6,7 @@ params:
   logo:
     header: '/assets/images/logo-SEnRgies-white.svg'
     footer: '/assets/images/logo-SEnRgies-color.svg'
+    
   image_sizes:
     sections:
       home:
