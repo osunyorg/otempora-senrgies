@@ -67,6 +67,9 @@ header#document-header
             @include media-breakpoint-up(desktop)
                 height: pxToRem(500)
                 width: pxToRem(450)
+            @include media-breakpoint-up(tablet)
+                height: pxToRem(400)
+                width: pxToRem(350)
             z-index: 2
         &::after
             // ici dans l'idéal un svg
@@ -79,6 +82,10 @@ header#document-header
             @include media-breakpoint-up(desktop)
                 height: pxToRem(210)
                 width: pxToRem(450)
+            @include media-breakpoint-up(tablet)
+                height: pxToRem(180)
+                width: pxToRem(370)
+                
         @include media-breakpoint-up(desktop)
             .container
                 padding-left: 0
