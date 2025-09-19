@@ -328,7 +328,22 @@ footer#document-footer
 
 // on utilise l'ID (#) pour être sûr.e d'overider le style de base et de cibler le bon footer
 footer#document-footer
+    
     @include media-breakpoint-up(desktop)
+        display: flex
+        .container
+            display: flex
+            justify-content: space-between
+            padding-bottom: $spacing-3
+            + .container
+                align-items: flex-end
+                padding-top: $spacing-3
+                padding-bottom: 0
+        
+    
+
+      
+        
         // étape 1 : aligner les deux `.container` sur la même ligne -> jeu de flex avec un gap
         // la class `.container` a des spécificités : elle a des paddings horizontaux qui nous gènent
         // donc :
