@@ -1,3 +1,6 @@
+body
+    font-weight: $body-weight
+
 .block-features ul 
     @include in-page-without-sidebar
         @include grid(2, desktop)
@@ -266,10 +269,28 @@ header#document-header
 
 //h2 accordeon changement de font
 .block.block-title--collapsed
-     h2
+    h2
+        @include h3
         font-family: $body-font-family
         font-weight: normal
+    &:hover
+        h2, &::before
+            color: $color-dark-green
 
+.collapse
+    @include in-page-without-sidebar
+        .block:first-child
+            
+            &.block-chapter--no_background 
+                .chapter
+                    .text
+                        width: columns(9)
+                        @include h4
+                        font-weight: 500
+                        color: $color-accent
+
+.block-title--classic + .block-title--collapsed
+    margin-top: $spacing-4 !important
 
 //h2 accordeon elargissement grille titre                   
 .block.block-title--collapsed
