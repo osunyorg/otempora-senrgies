@@ -7,6 +7,9 @@ h2,h3,h4,h5,h6
 
 // header : bannière avec logo + menu
 header#document-header
+    .logo 
+        .logo-color
+            display: none
     // ici pour éviter de réécrire toute la ligne `border: 1px...` on réassigne la variable css
     --color-border: #{$header-color}
     .menu
@@ -16,8 +19,11 @@ header#document-header
         // en l'absence de logo bleu, on inverse la couleur de blanc vers noir
         // dans l'idéal, ajouter un 2e logo à afficher à la place - logo dispo '/assets/images/logo-SEnRgies-color-header.svg'
         .logo
-            filter: invert(1)
-
+            .logo-white
+                display: none
+            .logo-color
+                display: block
+            
 
 .block-features li figure picture img
     display: block
@@ -237,6 +243,8 @@ header#document-header
             align-items: baseline
         .top, .block-title
             margin-bottom: 0
+            
+            
         .contact-content, .contacts
             margin-top: 0
         .contact-content
@@ -245,7 +253,7 @@ header#document-header
                 @include h3
                 font-weight: normal
                 @include grid(2)
-                gap: $spacing-3
+                gap: $spacing-2
             @include media-breakpoint-up(xl)
                 width: columns(6)
         .top
