@@ -350,8 +350,31 @@ footer#document-footer
                 align-items: flex-end
                 padding-top: $spacing-3
                 padding-bottom: 0
+        .container:first-child 
+            padding-right: 0
+        .container:last-child 
+            padding-left: 0
+            padding-top: 0
+        .nav-legal
+            @include grid(2)
+            row-gap: 4px
+            column-gap: $spacing-4
+            font-weight: bold
+            a
+                color: $color-accent
+            li
+                margin-top: 0
+        .footer-credit
+            text-align: left
+            font-size: 14px
+            margin-top: $spacing-3
+
+        .footer-social
+            display: none
         
-    
+        .footer-legals
+            width: 100%
+            
 
       
         
