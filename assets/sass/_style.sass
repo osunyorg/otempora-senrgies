@@ -261,6 +261,8 @@ header#document-header
             flex: 1
             .block-title
                 width: 100%
+    @include media-breakpoint-down(desktop)
+        padding: $spacing-3 0
 
 //h2 accordeon changement de font
 .block.block-title--collapsed
@@ -336,9 +338,17 @@ footer#document-footer
         // align-items: flex-end // pas nécessaire
         padding-top: 0
         padding-bottom: 0
+  @include media-breakpoint-down(desktop)
+    padding-top: 0
+    .container + .container 
+        margin-top: $spacing-1
+        .footer-legals
+            margin-top: $spacing-3
 
 // on utilise l'ID (#) pour être sûr.e d'overider le style de base et de cibler le bon footer
 footer#document-footer
+    .footer-social, .footer-site
+        display: none
     
     @include media-breakpoint-up(desktop)
         display: flex
@@ -369,8 +379,7 @@ footer#document-footer
             font-size: 14px
             margin-top: $spacing-3
 
-        .footer-social
-            display: none
+        
         
         .footer-legals
             width: 100%
