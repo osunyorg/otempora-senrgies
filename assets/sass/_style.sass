@@ -252,12 +252,15 @@ header#document-header
             .contacts
                 @include h3
                 font-weight: normal
-                @include grid(2)
-                gap: $spacing-2
+                display: flex
+                justify-content: flex-end
+                gap: $spacing-5
             @include media-breakpoint-up(xl)
                 width: columns(6)
         .top
             flex: 1
+            .block-title
+                width: 100%
 
 //h2 accordeon changement de font
 .block.block-title--collapsed
