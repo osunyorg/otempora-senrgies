@@ -1,6 +1,7 @@
 theme: osuny
 _merge: deep
 params:
+  plausible: senrgies.fr
   summary:
     position: hero
   logo:
