@@ -28,6 +28,11 @@ header#document-header
                 display: block
             
 
+.document-content
+    > .blocks
+        .block:first-child
+            margin-top: var(--block-space-y)
+
 .block-features li figure picture img
     display: block
     margin-left: 0
@@ -174,9 +179,9 @@ header#document-header
                 > *
                     flex: 1
                 figure
-                    img, picture, button
+                    img, picture, [role="button"]
                         height: 100%
-                        width: auto
+                        width: 100%
                     img
                         object-fit: cover
                     @include media-breakpoint-down(xxxl)
