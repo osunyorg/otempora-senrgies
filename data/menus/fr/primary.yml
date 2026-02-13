@@ -2,33 +2,45 @@
 title: Menu principal
 items:
 - title: Activités
+  slug: activites
   target: "/#nos-activites"
   kind: url
   new_tab: false
   children: []
+  descendants_targets: []
 - title: Qui sommes-nous ?
+  slug: qui-sommes-nous
   target: "/#identite"
   kind: url
   new_tab: false
   children: []
+  descendants_targets: []
 - title: Nos projets
+  slug: nos-projets
   target: "/#nos-projets"
   kind: url
   new_tab: false
   children: []
+  descendants_targets: []
 - title: Ambition
+  slug: ambition
   target: "/#ambition"
   kind: url
   new_tab: false
   children: []
+  descendants_targets: []
 - title: Gouvernance
+  slug: gouvernance
   target: "/#gouvernance"
   kind: url
   new_tab: false
   children: []
+  descendants_targets: []
 - title: Contact
+  slug: contact
   target: "/#contact"
   kind: url
   new_tab: false
   children: []
+  descendants_targets: []
 
