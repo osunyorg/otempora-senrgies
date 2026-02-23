@@ -7,6 +7,11 @@ osuny:
   website:
     id: abd3b691-f94b-426f-bf53-61f9ab1d8503
 
+## PARAMS
+params:
+  _merge: deep
+  plausible: "senrgies.fr"
+
 ## LANGUAGE
 defaultContentLanguage: fr
 defaultContentLanguageInSubdir: false
